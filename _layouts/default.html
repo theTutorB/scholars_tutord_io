@@ -21,5 +21,18 @@
 
     {% include footer.html %}
 
+    {% for path in site.data.assets.js %}
+
+    {%- if path contains '://' -%}
+    {%- assign src = path -%}
+    {%- else -%}
+    {%- assign src = path | relative_url -%}
+    {%- endif -%}
+
+    <script src="{{ src }}" type="text/javascript"></script>
+    {% endfor %}
+    <script>
+      console.log('loaded all js');
+    </script>
   </body>
 </html>

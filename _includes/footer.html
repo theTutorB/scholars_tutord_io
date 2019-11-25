@@ -9,14 +9,3 @@
   </div>
   <div class="four spacing"></div>
 </div>
-
-{% for path in site.data.assets.js %}    
-
-  {%- if path contains '://' -%}
-    {%- assign src = path -%}
-  {%- else -%}
-    {%- assign src = path | relative_url -%}
-  {%- endif -%}
-
-  <script src="{{ src }}" type="text/javascript"></script>
-{% endfor %}
